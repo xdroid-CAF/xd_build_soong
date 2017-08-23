@@ -20,6 +20,8 @@ import (
 	"runtime"
 	"strings"
 
+	"xdroid/soong/android"
+
 	"github.com/google/blueprint/proptools"
 )
 
@@ -159,6 +161,9 @@ type variableProperties struct {
 		Device_support_hwfde_perf struct {
 			Cflags []string
 		}
+
+		// include Xdroid variables
+		Xdroid android.Product_variables
 	} `android:"arch_variant"`
 }
 
@@ -379,6 +384,8 @@ type productVariables struct {
 	BoardUsesRecoveryAsBoot *bool `json:",omitempty"`
 
 	PrebuiltHiddenApiDir *string `json:",omitempty"`
+
+	Xdroid android.ProductVariables
 }
 
 func boolPtr(v bool) *bool {
