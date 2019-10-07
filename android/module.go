@@ -528,6 +528,9 @@ type commonProperties struct {
 
 	// set by ImageMutator
 	ImageVariation string `blueprint:"mutated"`
+
+	// Whether this module provides a boot jar
+	BootJarProvider bool `blueprint:"mutated"`
 }
 
 type hostAndDeviceProperties struct {
@@ -789,6 +792,10 @@ func (m *ModuleBase) String() string {
 	}
 	sb.WriteString("}")
 	return sb.String()
+}
+
+func (a *ModuleBase) BootJarProvider() bool {
+	return a.commonProperties.BootJarProvider
 }
 
 // BaseModuleName returns the name of the module as specified in the blueprints file.
