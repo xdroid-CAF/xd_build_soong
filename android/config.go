@@ -1318,3 +1318,11 @@ func (c *deviceConfig) DirectedVendorSnapshot() bool {
 func (c *deviceConfig) VendorSnapshotModules() map[string]bool {
 	return c.config.productVariables.VendorSnapshotModules
 }
+
+func (c *deviceConfig) DirectedRecoverySnapshot() bool {
+	return c.config.productVariables.DirectedRecoverySnapshot
+}
+
+func (c *deviceConfig) RecoverySnapshotModules() map[string]bool {
+	return c.config.productVariables.RecoverySnapshotModules
+}
